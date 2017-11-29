@@ -10,6 +10,7 @@ ______________
     npm install inline-html-withimg-loader --save
 
 ## 使用
+webpack配置:
 ```
     new HtmlWebpackPlugin({
         filename: 'index.html'
@@ -22,5 +23,24 @@ ______________
     }),
 
     new InlineManifestWebpackPlugin()
+```
+index.html：
+```
+<!DOCTYPE html>  
+<html lang="zh-CN">
+
+<head>  
+  <meta charset="UTF-8">
+  <title>Template</title>
+  <%= htmlWebpackPlugin.files.webpackManifest %>
+</head>
+
+<body>  
+  <div id="app">
+    <img src="./imges/a.jpg">
+  </div>
+</body>
+
+</html>  
 ```
 
