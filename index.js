@@ -23,7 +23,7 @@ module.exports = function(fileContent) {
 	}
 
 	var query = loaderUtils.parseQuery(this.query);
-	fileContent = query.min === false?fileContent:fileContent.replace(/\n/g, '');
+	fileContent = (typeof query.min == "undefined" || query.min === false) ? fileContent : fileContent.replace(/\n/g, '');
 	
 	if(/module\.exports\s?=/.test(fileContent)) {
 		fileContent = fileContent.replace(/module\.exports\s?=\s?/, '');
@@ -77,7 +77,7 @@ function replaceSrc(fileContent, exclude) {
 function loadDeep(fileContent, queryStr) {
 	return fileContent.replace(/#include\(\\?[\'\"][^\'\"]+\\?[\'\"]\);?/g, function(str){
 		var childFileSrc = str.replace(/[\\\'\"\>\(\);]/g, '').replace('#include', '');
-		return "\"+require("+JSON.stringify("html-withimg-loader"+queryStr+"!"+childFileSrc)+")+\"";
+		return "\"+require("+JSON.stringify("inline-html-withimg-loader"+queryStr+"!"+childFileSrc)+")+\"";
 	});
 }
 

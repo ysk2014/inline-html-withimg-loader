@@ -1,6 +1,6 @@
 {
   "name": "inline-html-withimg-loader",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "本插件是针对html-withimg-loader的扩展。修复使用html-webpack-plugin在html中不能使用注入语法的bug",
   "main": "index.js",
   "scripts": {
