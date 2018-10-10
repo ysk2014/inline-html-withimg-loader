@@ -16,6 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "loader-utils": "^0.2.15",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.11"
   }
 }
